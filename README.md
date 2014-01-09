@@ -2,6 +2,8 @@
 
 version 0.1.0 2014/1/9 11:33:32 
 
+QQ群: 332839486 
+
 [vcotime.com](http://vcotime.com) 's webapp framework for mobiles
 
 演示地址:[http://wvovo.com/mriot](http://wvovo.com/mriot "展示地址")
