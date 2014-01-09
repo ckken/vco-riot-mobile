@@ -1,6 +1,10 @@
 # Vco Riot Mobile 维酷移动框架  #
 
-vcotime.com 's webapp framework for mobiles
+version 0.1.0 2014/1/9 11:33:32 
+
+[vcotime.com](http://vcotime.com) 's webapp framework for mobiles
+
+演示地址:[http://wvovo.com/riot](http://wvovo.com/riot)
 
 ## 框架集成： ##
 
