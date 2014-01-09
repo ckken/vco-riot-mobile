@@ -4,7 +4,9 @@ version 0.1.0 2014/1/9 11:33:32
 
 [vcotime.com](http://vcotime.com) 's webapp framework for mobiles
 
-演示地址:[http://wvovo.com/riot](http://wvovo.com/riot)
+演示地址:[http://wvovo.com/riotm](http://wvovo.com/riotm "展示地址")
+
+> Production 版本正在研发  :[http://wvovo.com/mobile](http://wvovo.com/mobile "演示地址") 有兴趣的欢迎提供issue
 
 ## 框架集成： ##
 
