@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]>    <html class="no-js iem7"> <![endif]-->
+<!--[if (gt IEMobile 7)|!(IEMobile)]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <title>Zepto Riot Fastclick Mobile Flamework</title>
+    <meta name="description" content="">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+    <!--IOS 7.1-->
+   <!-- <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">-->
+    <!--<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no"/>-->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0"/>
+    <meta http-equiv="cleartype" content="on">
+
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/touch/apple-touch-icon-144x144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/touch/apple-touch-icon-114x114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/touch/apple-touch-icon-72x72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="img/touch/apple-touch-icon-57x57-precomposed.png">
+    <link rel="shortcut icon" sizes="196x196" href="img/touch/touch-icon-196x196.png">
+    <link rel="shortcut icon" href="img/touch/apple-touch-icon.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="img/touch/apple-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#222222">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- For iOS web apps. Delete if not needed. https://github.com/h5bp/mobile-boilerplate/issues/94 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="">
+
+    <!-- This script prevents links from opening in Mobile Safari. https://gist.github.com/1042026 -->
+    <!--
+    <script>(function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone")</script>
+    -->
+
+    <!-- build:css static/css/site.css -->
+    <link rel="stylesheet" href="static/css/style.css">
+    <!-- /build -->
+
+</head>
+<body>
+
+<!-- Add your site or application content here -->
+
+
+
+<section>
+    <header class="fixed">
+        <nav><ul>
+            <li><a href="#!/activity">活动</a></li>
+            <li><a href="#!/news">新闻</a></li>
+            <li><a href="#!/brand">品牌</a></li>
+        </ul> </nav>
+    </header>
+    <article class="scroll">
+        <ul id="mainList" class="mainList list">
+
+        </ul>
+        <div class="loadMore" id="loadMore"><h2>加载更多</h2><p>加载下10条......</p></div>
+    </article>
+</section>
+
+
+<section id="swipe-right" class="directiveBox"></section>
+<section id="swipe-left" class="directiveBox"></section>
+<section id="swipe-top" class="directiveBox"></section>
+<section id="swipe-bottom" class="directiveBox"></section>
+<section id="popwindow" class="popwindow"></section>
+<div id="popbox">
+    <div id="popdiv">
+        <h2 id="popboxTitle">系统提示</h2>
+        <p id="popboxContent">数据正在加载中,请耐心等待......</p>
+        <div class="control">
+            <a class="btn btn-danger btn-block" onclick="G.finishLoad()">关闭提示</a>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    var G = {
+        action : 'activity',
+        hash:'!',
+        html5:false
+    };
+
+</script>
+
+<script type="html/mainList">
+        <li id="{id}" class="volist clearfix">
+            <div class="mainbox">
+            <a class="touch" href="#!/{action}/{key}">
+                <img src="{img}">
+                <div class="itemcontent">
+                    <h2>{title}</h2>
+                    <p>{desc}</p>
+                </div>
+            </a>
+            </div>
+        </li>
+</script>
+
+<script type="html/mainContent">
+                <header><nav><ul><li><a href="#!/{action}" class="on">返回</a></li></ul></nav></header>
+                <article class="scroll mainContent">
+                    <h1>{title}<p>{time}</p></h1>
+                    <div id="inserContent" class="inserContent"></div>
+                </article>
+</script>
+
+<!-- build:js app/site.js -->
+<script src="app/lib/zepto/zepto.js"></script>
+<script src="app/lib/zepto/callback.js"></script>
+<script src="app/lib/zepto/deferred.js"></script>
+<script src="app/lib/zepto/assets.js"></script>
+
+<script src="app/lib/boilerplate/helper.js"></script>
+<script src="app/lib/fastclick.js"></script>
+<script src="app/lib/bouncefix.js"></script>
+<script src="app/lib/riot.js"></script>
+
+<script src="app/mod/route.js"></script>
+<script src="app/mod/db.js"></script>
+<script src="app/mod/server.js"></script>
+<script src="app/mod/filter.js"></script>
+<script src="app/mod/app.js"></script>
+
+<script src="http://wvovo.com:8080/target/target-script-min.js#anonymous"></script>
+<!-- /build -->
+
+
+</body>
+</html>

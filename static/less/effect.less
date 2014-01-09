@@ -1,0 +1,14 @@
+
+//透明
+.opacity(@n:50){
+  filter:alpha(Opacity=@n);-moz-opacity:@n/100;opacity: @n/100;
+}
+
+
+
+//阴影
+.shadow(@a:0px,@b:2px,@w:2px,@c:rgba(0, 0, 0, 0.3)){
+  box-shadow:@a @b @w @c;
+  -webkit-box-shadow:@a @b @w @c;
+  -moz-box-shadow:@a @b @w @c;
+}

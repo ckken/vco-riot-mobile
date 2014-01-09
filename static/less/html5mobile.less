@@ -1,0 +1,167 @@
+@import "shape";
+@import "transform";
+@import "effect";
+
+.wrapbox(@t:0,@r:0,@b:0,@l:0){
+  top:@t;
+  bottom: @b;
+  left: @l;
+  right: @r;
+}
+
+section,article{
+  .wrapbox();
+}
+
+@header-h:44px;
+
+header{
+  .shadow();
+  height: @header-h;
+  line-height: @header-h;
+  overflow: hidden;
+  position: relative;
+}
+
+header.fixed {
+  position: fixed;
+  .opacity(80);
+  width: 100%;
+}
+
+header ~  section article ,
+header ~  article
+{
+  top: @header-h;
+}
+header.fixed ~ section article,
+header.fixed ~ article
+{
+  padding-top: @header-h; top: 0;
+}
+
+section{
+  position: fixed;
+}
+
+article{
+  position: absolute;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+/* Hack to force all relatively and absolutely positioned elements still render while scrolling
+   Note: This is a bug for "-webkit-overflow-scrolling: touch" */
+article > * {
+  -webkit-transform: translateZ(0px);
+  transform: translateZ(0px);
+}
+
+.scroll{
+  overflow-x: hidden;
+  overflow-y: scroll;
+  -webkit-transition-property: top, bottom;
+  transition-property: top, bottom;
+  -webkit-transition-duration: .2s, .2s;
+  transition-duration: .2s, .2s;
+  -webkit-transition-timing-function: linear, linear;
+  transition-timing-function: linear, linear;
+
+  -webkit-overflow-scrolling: touch;
+  -moz-box-flex:1.0; /* Firefox */
+  -webkit-box-flex:1.0; /* Safari 和 Chrome */
+  box-flex:1.0;
+  /* BUG (iOS) POSITION: relative childrens */
+}
+/*横向拖动*/
+.scroll.horizontal {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+
+/*directiveBox*/
+.directiveBox{.wrapbox();  z-index: 101;
+  .duration(300ms);
+  background: #fff;position: fixed
+}
+
+#swipe-left{.tramsform(100%);}
+#swipe-right{.tramsform(-100%);}
+#swipe-top{.tramsform(0,-100%);}
+#swipe-bottom{.tramsform(0,100%);}
+
+#swipe-left.on,
+#swipe-right.on,
+#swipe-top.on,
+#swipe-bottom.on{
+  .tramsform(0,0);
+}
+
+/*For IE10*/
+a, input, button {
+  -ms-touch-action: none !important;
+}
+
+
+/**
+  mobile debug
+*/
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+a, input, button {
+  -ms-touch-action: none !important;
+}
+
+
+button,
+input,
+select,
+textarea {
+  margin: 0;
+  font-family: inherit;
+  font-size: 100%;
+}
+
+button,
+input {
+  line-height: normal;
+}
+
+input[type="text"],textarea{
+  -webkit-user-select: text;
+}
+
+button,
+select {
+  text-transform: none;
+}
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  cursor: pointer;
+  -webkit-appearance: button;
+}
+
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+
+
